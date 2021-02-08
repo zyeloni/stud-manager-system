@@ -13,7 +13,7 @@ class NewsController extends Controller
         $news = null;
         $search = $request->input('search');
 
-        if ($search != null || $search!='') //Szukanie przez AGOLIE |
+        if ($search != null || $search!='')
             $news = News::search($search)->get()->sortByDesc("created_at")->sortByDesc("pinned");
         else
             $news = News::all()->sortByDesc("created_at")->sortByDesc("pinned");
@@ -21,7 +21,19 @@ class NewsController extends Controller
         return view("dashboard.news.news", ['news'=>$news]);
     }
 
-    //TODO return json search result of news
+    public function jsonIndex(Request $request)
+    {
+        $news = null;
+        $search = $request->input("search");
+
+        if ($search != null || $search!='')
+            $news = News::search($search)->get()->sortByDesc("created_at")->sortByDesc("pinned");
+        else
+            $news = News::all()->sortByDesc("created_at")->sortByDesc("pinned");
+
+
+        return $news;
+    }
 
     public function create()
     {

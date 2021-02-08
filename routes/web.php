@@ -13,6 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//WEB API
+Route::middleware(['auth:sanctum', 'verified'])->get('/api/news/', [\App\Http\Controllers\NewsController::class, 'jsonIndex'])->name('api.news.index');
+
+
+//MVC
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', [\App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard/news/', [\App\Http\Controllers\NewsController::class, 'index'])->name('dashboard.news');
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard/news/create', [\App\Http\Controllers\NewsController::class, 'create'])->name('dashboard.news.create');
@@ -20,6 +25,8 @@ Route::middleware(['auth:sanctum', 'verified'])->post('/dashboard/news/create', 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard/news/update/{id}', [\App\Http\Controllers\NewsController::class, 'update'])->name('dashboard.news.update');
 Route::middleware(['auth:sanctum', 'verified'])->post('/dashboard/news/update', [\App\Http\Controllers\NewsController::class, 'update_store'])->name('dashboard.news.update_store');
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard/news/delete/{id}', [\App\Http\Controllers\NewsController::class, 'delete'])->name('dashboard.news.delete');
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard/report', [\App\Http\Controllers\ReportController::class, 'index'])->name('dashboard.report.index');
+
 
 Route::get('/', function () {
     return redirect()->route("dashboard");

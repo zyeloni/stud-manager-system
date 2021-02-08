@@ -19,12 +19,12 @@ class MenuBuilder
 
         'Request' => [
             'name' => 'Zgłoszenia',
-            'route'=> 'dashboard.news'
+            'route'=> 'dashboard.report.index'
         ],
 
         'Projects' => [
             'name' => 'Projekty/Zaliczenia',
-            'route'=> 'dashboard.news'
+            'route'=> 'dashboard.news.create'
         ],
     ];
 

@@ -21,12 +21,12 @@
             @foreach($news as $item)
                 @if($item->pinned)
                     <div class="mb-8 flex justify-between items-center w-full right-timeline">
-                        <div class="order-1 bg-red-400 rounded-lg shadow-xl w-full px-6 py-4">
+                        <div class="order-1 bg-blue-500 rounded-lg shadow-xl w-full px-6 py-4">
                             <h3 class="mb-1 font-bold text-white text-xl">
                                 {{ $item->title }}
                             </h3>
-                            <p class="mb-3 font-bold text-red-300 underline">Utworzone: {{ $item->created_at }}</p>
-                            <p class="text-sm leading-snug tracking-wide text-white text-opacity-100">
+                            <p class="mb-3 font-bold text-green-100 underline">Utworzone: {{ $item->created_at }}</p>
+                            <p class="text-sm leading-snug tracking-wide text-red text-opacity-100">
                                 {!! $item->content !!}
                             </p>
                             <p class="mt-3 text-sm">
@@ -37,12 +37,12 @@
                     </div>
                 @else
                     <div class="mb-8 flex justify-between items-center w-full right-timeline">
-                        <div class="order-1 bg-gray-400 rounded-lg shadow-xl w-full px-6 py-4">
+                        <div class="order-1 bg-blue-400 rounded-lg shadow-xl w-full px-6 py-4">
                             <h3 class="mb-1 font-bold text-white text-xl">
                                 {{ $item->title }}
                             </h3>
-                            <p class="mb-3 text-sm font-bold text-gray-300 underline">Utworzone: {{ $item->created_at }}</p>
-                            <p class="text-sm leading-snug tracking-wide text-white text-opacity-100">
+                            <p class="mb-3 font-bold text-green-100 underline">Utworzone: {{ $item->created_at }}</p>
+                            <p class="text-sm leading-snug tracking-wide text-red text-opacity-100">
                                 {!! $item->content !!}
                             </p>
                             <p class="mt-3 text-sm">
